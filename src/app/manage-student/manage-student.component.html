@@ -1,0 +1,109 @@
+<div class="conatiner">
+  <div class="row mb-5">
+    <h1 class="text-center text-decoration-underline">Manage Student</h1>
+  </div>
+
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-3"></div>
+      <div class="col-4">
+        <button
+          class="float-start btn btn-success b-5"
+          [routerLink]="['/student-dashboard']"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-return-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"
+            />
+          </svg>
+          Back
+        </button>
+      </div>
+      <div class="col-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <div class="conatainer border border-success b-5 rounded">
+          <h2 class="text-center bg-success text-white p-3">Add Student</h2>
+
+          <hr />
+          <div [formGroup]="studentForm">
+            <div class="row p-3">
+              <div class="col-5">
+                <label for="fname" class="form-label">First Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="stud_firstname"
+                  id="fname"
+                />
+              </div>
+              <div class="col-2"></div>
+              <div class="col-5">
+                <label for="lname" class="form-label">Last Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="stud_lastname"
+                  id="lname"
+                />
+              </div>
+            </div>
+            <div class="row p-3">
+              <div class="col-5">
+                <label for="department" class="form-label">Department:</label>
+                <select
+                  name="dept"
+                  id="department"
+                  formControlName="dept_id"
+                  class="form-select"
+                >
+                  <option value="default" selected disabled>
+                    please select
+                  </option>
+                  <option *ngFor="let dept of departmentList" [value]="dept.id">
+                    {{ dept.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-2"></div>
+              <div class="col-5">
+                <label for="emptype" class="form-label"> Student Type </label>
+                <select
+                  name="studenttype"
+                  id="stud_type"
+                  class="form-select"
+                  formControlName="stud_type"
+                >
+                  <option value="default" selected disabled>
+                    please select
+                  </option>
+                  <option value="regular">regular</option>
+                  <option value="parttime">Parttime</option>
+                </select>
+              </div>
+            </div>
+            <div class="row p-3">
+              <div class="col-4"></div>
+              <div class="col-4">
+                <button class="btn btn-success w-100" (click)="save()">
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
